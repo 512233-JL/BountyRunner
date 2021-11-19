@@ -11,6 +11,9 @@ public class PlayerMovement : MonoBehaviour
 
     public bool isGrounded = false;
 
+
+    
+
     public float speed = 5;
     [SerializeField] Rigidbody rb;
 
@@ -21,8 +24,6 @@ public class PlayerMovement : MonoBehaviour
 
     public Vector3 jump;
     public float jumpForce = 2.0f;
-
-    
 
 
     private void Start()
@@ -56,6 +57,15 @@ public class PlayerMovement : MonoBehaviour
             rb.AddForce(jump * jumpForce, ForceMode.Impulse);
             animator.SetBool("IsJumping", true); 
         }
+
+        if(gameObject.transform.position.y == 0.1f)
+        { 
+            isGrounded = true; 
+        }
+        else
+        {
+            isGrounded = false; 
+        }
     }
 
 
@@ -67,6 +77,7 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("IsJumping", false);
         }
     }
+
 
     //consider when character is jumping .. it will exit collision.
     void OnCollisionExit(Collision theCollision)
