@@ -83,6 +83,8 @@ public class PlayerMovement : MonoBehaviour
         alive = false;
         // Restart the game
         Invoke("Restart", 1);
+
+        animator.SetBool("IsDead", true);
     }
 
     void Restart()
