@@ -58,9 +58,10 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("IsJumping", true); 
         }
 
-        if(gameObject.transform.position.y == 0.1f)
+        if(gameObject.transform.position.y <= 0.2f)
         { 
-            isGrounded = true; 
+            isGrounded = true;
+            Debug.Log("ISgrounded");
         }
         else
         {
