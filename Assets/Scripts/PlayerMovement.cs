@@ -62,10 +62,12 @@ public class PlayerMovement : MonoBehaviour
         { 
             isGrounded = true;
             Debug.Log("ISgrounded");
+            animator.SetBool("IsJumping", false);
         }
         else
         {
-            isGrounded = false; 
+            isGrounded = false;
+            animator.SetBool("IsJumping", true);
         }
     }
 
@@ -76,6 +78,10 @@ public class PlayerMovement : MonoBehaviour
         {
             isGrounded = true;
             animator.SetBool("IsJumping", false);
+        }
+
+        if (theCollision.gameObject.tag== "Obstacle")
+        { animator.SetBool("IsDead", true);
         }
     }
 
