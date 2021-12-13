@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
+    static Animator anim;
 
     bool alive = true;
 
@@ -14,7 +15,9 @@ public class PlayerMovement : MonoBehaviour
 
     public float speedIncreasePerPoint = 0.1f;
 
-    private void FixedUpdate()
+
+
+    public void FixedUpdate()
     {
         if (!alive) return;
 
@@ -44,5 +47,6 @@ public class PlayerMovement : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+    
 
 }
